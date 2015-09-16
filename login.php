@@ -2,15 +2,29 @@
 if(isset($_POST["user"]) && isset($_POST["pass"])){
 	setcookie("user", $_POST["user"]);
 	
-	if($_POST["user"] == "Person" && $_POST["pass"] == "Secret"){
-		header("Location: main.php");
-		exit();
+	$filehandle = fopen("users","r");
+	if($filehandle){
+		
+		$line;
+		
+		while($line = fgets($filehandle)){
+			$line = trim($line);
+			
+			$comparetext = $_POST["user"]."=".$_POST["pass"];
+			if($line == $comparetext){
+				fclose($filehandle);
+				header("Location: main.php");
+				exit();
+			}
+		}
+		
+		fclose($filehandle);
 	}
-	else{
-		header("Location: index.php");
-		exit();
-	}
+	
+	header("Location: index.php");
+	exit();
 }
+
 else{
 	header("Location: index.php");
 	exit();
