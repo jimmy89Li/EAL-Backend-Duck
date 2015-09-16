@@ -1,7 +1,7 @@
 <?php
 if(isset($_POST["user"]) && isset($_POST["pass"])){
 	setcookie("user", $_POST["user"]);
-	
+	//added users file checking system
 	$filehandle = fopen("users","r");
 	if($filehandle){
 		
