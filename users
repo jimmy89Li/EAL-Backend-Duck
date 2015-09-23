@@ -1,3 +1,1 @@
-Admin=1234
-jimmy=password
-asdf=asdf
+[{"user":"admin","pass":"1234"},{"user":"jimmy","pass":"password"},{"user":"qwerty","pass":"asdfg"}]
