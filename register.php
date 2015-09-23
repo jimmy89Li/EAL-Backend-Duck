@@ -7,7 +7,7 @@ if(isset($_POST["user"]) && isset($_POST["pass"])
 		$line;
 		
 		while($line = fgets($filehandle)){
-			$line = trim(explore("=",$line)[0]);
+			$line = trim(explode("=",$line)[0]);
 			
 			if($line == $_POST["user"]){
 				setcookie("user", $_POST["user"]);
@@ -30,3 +30,4 @@ else{
 	header("location: registerpage.php");
 	exit();
 }
+?>
